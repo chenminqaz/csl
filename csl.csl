@@ -4,10 +4,14 @@
   default-locale="zh-CN">
 
   <info>
-    <title>China National Standard GB/T 7714-2015 (numeric, 中文) - Modified (en: et al.)</title>
-    <id>http://www.zotero.org/styles/china-national-standard-gb-t-7714-2015-numeric</id>
-    <link href="http://www.zotero.org/styles/china-national-standard-gb-t-7714-2015-numeric" rel="self"/>
+    <title>GB/T 7714-2015 (numeric, 中文) - Modified (English: et al.)</title>
+
+    <!-- 重要：用你自己的唯一 id（建议用 raw 链接） -->
+    <id>https://raw.githubusercontent.com/chenminqaz/csl/main/csl.csl</id>
+    <link href="https://raw.githubusercontent.com/chenminqaz/csl/main/csl.csl" rel="self"/>
+
     <link href="https://std.samr.gov.cn/gb/search/gbDetailed?id=71F772D8055ED3A7E05397BE0A0AB82A" rel="documentation"/>
+
     <author>
       <name>牛耕田</name>
       <email>buffalo_d@163.com</email>
@@ -16,10 +20,11 @@
       <name>Zeping Lee</name>
       <email>zepinglee@gmail.com</email>
     </contributor>
+
     <category citation-format="numeric"/>
     <category field="generic-base"/>
-    <summary>The Chinese GB/T 7714-2015 numeric style (Modified: English uses “et al.”)</summary>
-    <updated>2024-09-18T20:42:19+00:00</updated>
+    <summary>GB/T 7714-2015 numeric style (Modified: English uses “et al.”)</summary>
+    <updated>2025-12-30T00:00:00+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
 
@@ -36,17 +41,13 @@
       <term name="close-quote">”</term>
       <term name="open-inner-quote">‘</term>
       <term name="close-inner-quote">’</term>
-      <!-- zh et-al is normally “等”; keep default behavior here -->
     </terms>
   </locale>
 
-  <!-- English locale (key change: et-al) -->
+  <!-- English locale: key change -->
   <locale xml:lang="en">
     <terms>
-      <!-- Make English entries show “et al.” instead of “等” -->
       <term name="et-al">et al.</term>
-      <!-- Optional: if you want italic “et al.”, Zotero usually won’t style term italics here;
-           you’d need a name/et-al formatting tweak. Most people keep plain text. -->
     </terms>
   </locale>
 
@@ -68,7 +69,6 @@
       <name>
         <name-part name="family" text-case="uppercase"/>
       </name>
-      <!--  <institution/>  -->
       <substitute>
         <names variable="composer"/>
         <names variable="illustrator"/>
@@ -96,13 +96,11 @@
           </choose>
           <choose>
             <if type="article article-journal" match="none">
-              <!--  预印本和期刊文章的编号用于其他位置  -->
               <text variable="number"/>
             </if>
           </choose>
           <choose>
             <if type="collection manuscript personal_communication" match="any">
-              <!--  档案的卷宗号  -->
               <text variable="archive_location"/>
             </if>
           </choose>
@@ -125,7 +123,7 @@
     </group>
   </macro>
 
-  <!--  书籍的卷号（“第 x 卷”或“第 x 册”）  -->
+  <!--  书籍的卷号  -->
   <macro name="volume">
     <choose>
       <if type="article article-journal article-magazine article-newspaper periodical" match="none">
@@ -210,7 +208,6 @@
       <name>
         <name-part name="family" text-case="uppercase"/>
       </name>
-      <!--  <institution/>  -->
       <label form="short" prefix=", "/>
     </names>
   </macro>
@@ -221,7 +218,6 @@
       <name>
         <name-part name="family" text-case="uppercase"/>
       </name>
-      <!--  <institution/>  -->
       <substitute>
         <names variable="editorial-director"/>
         <names variable="collection-editor"/>
@@ -364,12 +360,10 @@
     </choose>
   </macro>
 
-  <!--  出版日期  -->
   <macro name="issued-date">
     <date variable="issued" form="numeric"/>
   </macro>
 
-  <!--  引用日期  -->
   <macro name="accessed-date">
     <choose>
       <if variable="URL DOI" match="any">
@@ -378,7 +372,6 @@
     </choose>
   </macro>
 
-  <!--  获取和访问路径、数字对象唯一标识符  -->
   <macro name="access">
     <group delimiter=". ">
       <text variable="URL"/>
@@ -386,7 +379,6 @@
     </group>
   </macro>
 
-  <!--  参考文献表格式  -->
   <macro name="entry-layout">
     <group delimiter=". ">
       <text macro="author"/>
@@ -443,16 +435,10 @@
   </citation>
 
   <bibliography entry-spacing="0" et-al-min="4" et-al-use-first="3" second-field-align="flush">
-    <!-- CSL-M multilingual layouts: choose by item language -->
-    <layout suffix="." locale="zh">
-      <text variable="citation-number" prefix="[" suffix="]"/>
-      <text macro="entry-layout"/>
-    </layout>
-    <layout suffix="." locale="en">
+    <layout suffix=".">
       <text variable="citation-number" prefix="[" suffix="]"/>
       <text macro="entry-layout"/>
     </layout>
   </bibliography>
 
 </style>
-
